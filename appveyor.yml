@@ -8,5 +8,5 @@ build_script:
   - pyinstaller -F convert.py
   - dir
   - dir dist
-  - dir dist\convert
-
+artifacts:
+   - path: dist\*
