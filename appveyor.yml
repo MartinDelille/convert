@@ -1,2 +1,3 @@
 build_script:
   - python convert.py
+  - pyinstaller convert.py
