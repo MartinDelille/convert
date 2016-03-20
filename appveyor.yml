@@ -1,6 +1,7 @@
 environment:
   PYTHON: C:\Python27
 install:
+  - set PATH=%PYTHON%;%PYTHON%\Scripts;%APPVEYOR_BUILD_FOLDER%;%PATH%
   - pip installer pyinstaller
 build_script:
   - python convert.py
