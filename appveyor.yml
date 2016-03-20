@@ -1,3 +1,9 @@
+install:
+  - pip installer pyinstaller
 build_script:
   - python convert.py
   - pyinstaller convert.py
+  - dir
+  - dir dist
+  - dir dist\convert
+
