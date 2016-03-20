@@ -9,4 +9,15 @@ build_script:
   - dir
   - dir dist
 artifacts:
-   - path: dist\*
+   - path: dist\convert.exe
+artifacts:
+  - path: convert.exe
+deploy:
+  provider: GitHub
+  auth_token:
+    secure: bkzyRyhHswuOGV4qmGWex3EkEiR2cF821jJNdznXdVj0Iv1opO0YrOLj/ZfNeZZI
+  artifact: convert.exe
+  draft: false
+  prerelease: false
+  on:
+    appveyor_repo_tag: true
