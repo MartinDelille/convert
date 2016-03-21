@@ -28,7 +28,7 @@ with io.open(inputFile, 'r', encoding='utf-16') as csvfile:
     reader = csv.reader(utf_8_encoder(csvfile), delimiter=';', quotechar='|')
 
     with open(outputFile, 'w') as output:
-        writer = csv.writer(output)
+        writer = csv.writer(output, delimiter=';')
         header = True
         i = 0
         for row in reader:
