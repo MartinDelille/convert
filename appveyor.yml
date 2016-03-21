@@ -6,9 +6,10 @@ install:
 build_script:
   - python convert.py
   - pyinstaller -F convert.py
-  - 7z a convert.zip dist/convert.exe
+  - cd dist
+  - 7z a convert.zip convert.exe
 artifacts:
-   - path: convert.zip
+   - path: dist/convert.zip
 deploy:
   provider: GitHub
   auth_token:
