@@ -1,8 +1,8 @@
 import io
 import csv
+import codecs
 
-inputFile = "Articles.csv"
-#inputFile = "destination.csv"
+inputFile = "Articles.txt"
 outputFile = "Qarticles.txt"
 
 params = {
@@ -20,15 +20,15 @@ params = {
         "86": ("800", "8")
 }
 
-def utf_8_encoder(unicode_csv_data):
-    for line in unicode_csv_data:
-        yield line.encode('utf-8')
+def encodeToLatin1(data):
+    for line in data:
+        yield line.encode('latin-1', errors='ignore')
 
 with io.open(inputFile, 'r', encoding='utf-16') as csvfile:
-    reader = csv.reader(utf_8_encoder(csvfile), delimiter=';', quotechar='|')
+    reader = csv.reader(encodeToLatin1(csvfile), delimiter=';', quotechar='|')
 
-    with open(outputFile, 'w') as output:
-        writer = csv.writer(output, delimiter=';')
+    with open(outputFile, 'w') as outputFile:
+        writer = csv.writer(outputFile, delimiter=';')
         header = True
         i = 0
         for row in reader:
@@ -47,7 +47,7 @@ with io.open(inputFile, 'r', encoding='utf-16') as csvfile:
                 newRow.append("")
                 newRow.append("")
                 newRow.append(row[3])
-                for k, t in params.iteritems():
+                for k, t in params.items():
                     if row[0].startswith(k):
                         newRow.append(t[0])
                         newRow.append(t[1])
