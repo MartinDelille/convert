@@ -5,6 +5,7 @@ install:
   - pip install pyinstaller
 build_script:
   - python convert.py
+  - diff Qarticles.txt Qarticles_expected.txt
   - pyinstaller -F convert.py
   - cd dist
   - 7z a convert.zip convert.exe
