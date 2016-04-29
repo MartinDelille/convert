@@ -33,7 +33,7 @@ with io.open(inputFile, 'r', encoding='utf-16') as csvfile:
         i = 0
         for row in reader:
             if header:
-                writer.writerow(["ACLE1", "DESAPRES", "", "", "", "", "", "", "", "CODESSFAMILLE", "CODEFAMILLE", "CODEVENTILVT", "POIDS"])
+                writer.writerow(["ACLE1", "DESAPRES", "", "", "", "", "", "", "", "CODESSFAMILLE", "CODEFAMILLE", "CODEVENTILVT"])
                 header = False
             else:
                 newRow = []
@@ -55,6 +55,5 @@ with io.open(inputFile, 'r', encoding='utf-16') as csvfile:
                 else:
                     newRow.append("")
                     newRow.append("")
-                newRow.append(row[2])
                 writer.writerow(newRow)
                 i += 1
